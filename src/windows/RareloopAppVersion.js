@@ -27,7 +27,7 @@ module.exports = {
             var pV = Windows.ApplicationModel.Package.current.id.version;
             var r = {
                 "build": pV.build,
-                "version": pV.major + "." + pV.minor + "." + pV.revision
+                "version": pV.major + "." + pV.minor + "." + pV.build
             };
             successCallback( r );
         }
