@@ -34,9 +34,10 @@
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = [infoDict objectForKey:@"CFBundleShortVersionString"];
     NSNumber *buildNumber = [infoDict objectForKey:@"CFBundleVersion"];
+    NSString *packageName = [infoDict objectForKey:@"CFBundleIdentifier"];
 
     // Build a plugin response
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary: @{@"version": appVersion, @"build": buildNumber}];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary: @{@"version": appVersion, @"build": buildNumber, @"packageName": packageName}];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
